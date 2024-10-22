@@ -25,8 +25,15 @@ app.use(cookieParser())
 app.use('/uploads', express.static(__dirname+'/uploads'))
 app.use(cors({
     credentials: true, // Allow credentials (cookies)
-    origin: 'http://localhost:5173', // Your frontend URL
+    origin: 'https://booking-frontend-lemon.vercel.app/', // Your frontend URL
 }));
+
+
+app.get("/", async (req, res) => {
+    res.status(200).json({
+      message: "Hello developers from DikaDika",
+    });
+  });
 
 
 // mongoose.connect(process.env.MONGO_URL)
