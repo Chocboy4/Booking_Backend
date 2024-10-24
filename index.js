@@ -344,8 +344,15 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
+app.use(cors({ credentials: true, origin: 'https://booking-frontend-lemon.vercel.app' }));
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+
+app.get("/", async (req, res) => {
+         res.status(200).json({
+           message: "Hello developers from Chocboy",
+         });
+       });
 
 // Database connection
 mongoose.connect(process.env
